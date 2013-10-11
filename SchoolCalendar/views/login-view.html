@@ -1,0 +1,33 @@
+  <div id="tabstrip-login" 
+         data-role="view"  
+         data-title="Login" 
+         data-model="app.loginService.viewModel">
+
+        <div class="view-content">
+            <h3 data-bind="invisible: isLoggedIn">Enter your credentials:</h3>
+            <h1 class="welcome" data-bind="visible: isLoggedIn">
+                Welcome, <span data-bind="text: username"></span>!
+            </h1>
+
+            <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                <li>
+                    <label>
+                        Username
+                        <input type="text" data-bind="value: username"/>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Password
+                        <input type="password" data-bind="value: password" />
+                    </label>
+                </li>
+            </ul>
+
+            <div class="buttonArea">
+                <a id="login" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button">Login</a>
+                <a id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button">Logout</a>
+            </div>
+        </div>
+
+  </div>
