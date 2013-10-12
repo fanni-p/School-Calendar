@@ -1,0 +1,15 @@
+<div id="tabstrip-camera" 
+     data-role="view"  
+     data-title="Camera" 
+     data-model="app.cameraService.viewModel">
+    <div class="view-content">
+        <div class="action-area">
+            <a data-role="button" data-bind="click:capturePhoto" class="takePicture-button" id="capturePhotoButton">Take Photo</a>
+    	</div>
+        <div class="result-area">
+            <div class="results">
+                <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
+            </div>
+    	</div>
+    </div>
+</div>

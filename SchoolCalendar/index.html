@@ -13,13 +13,48 @@
         <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
 
         <script src="scripts/libs/rsvp.min.js"></script>
-        <script src="scripts/login.js"></script>
-        <script src="scripts/weather.js"></script>
         <script src="scripts/app.js"></script>
+        <script src="scripts/camera.js"></script>
+        <script src="scripts/login.js"></script>
         <script src="data/http-request.js"></script>
 
     </head>
     <body>
+        
+         <div id="tabstrip-login" 
+             data-role="view"  
+             data-title="Login" 
+             data-model="app.loginService.viewModel">
+
+            <div class="view-content">
+                <h3 data-bind="invisible: isLoggedIn">Enter your credentials:</h3>
+                <h1 class="welcome" data-bind="visible: isLoggedIn">
+                    Welcome, <span data-bind="text: username"></span>!
+                </h1>
+
+                <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                    <li>
+                        <label>
+                            Username
+                            <input type="text" data-bind="value: username"/>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            Password
+                            <input type="password" data-bind="value: password" />
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="buttonArea">
+                    <a id="login" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button">Login</a>
+                    <a id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button">Logout</a>
+                </div>
+            </div>
+         </div>
+        
+        
         <!--Home-->
         <div id="tabstrip-home" 
              data-role="view"  
@@ -82,9 +117,9 @@
             <!--Footer-->
             <div data-role="footer">
                 <div data-role="tabstrip">
+                    <a href="views/login-view.html#tabstrip-login" data-icon="settings">Login</a>
                     <a href="#tabstrip-home" data-icon="home">Home</a>
-                    <a href="views/login-view.html#tabstrip-login" data-icon="contacts">Login</a>
-                    <!--<a href="#tabstrip-weather" data-icon="globe">Weather</a>-->
+                    <a href="views/camera-view.html#tabstrip-camera" data-icon="camera">Camera</a>
                 </div>
             </div>
         </div>

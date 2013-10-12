@@ -8,7 +8,7 @@
         isLoggedIn: false,
         username: "",
         password: "",
-        accessToken: "",
+        accessToken: localStorage.getItem("accessToken"),
 
         onLogin: function () {
             var that = this,
@@ -31,6 +31,7 @@
 
             httpRequester.postLogin(app.servicesBaseUrl + 'auth/token', userData).then(function(success) {
                 that.accessToken = success.accessToken;
+                localStorage.setItem("accessToken", that.accessToken);
                 console.log(success);
             }, function(error){
                 console.log(error);
@@ -53,6 +54,7 @@
         clearForm: function () {
             var that = this;
             
+            localStorage.setItem("accessToken", "");
             that.set("accessToken", "");
             that.set("username", "");
             that.set("password", "");

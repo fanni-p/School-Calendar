@@ -21,26 +21,6 @@
         return promise;
     }
     
-     function postLogin(url, data) {
-        var promise = new RSVP.Promise(function (resolve, reject) {
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json",
-                timeout: 10000,
-                data: JSON.stringify(data),
-                success: function (data) {
-                    resolve(data);
-                },
-                error: function (err) {
-                    reject(err);
-                }
-            });
-        });
-        return promise;
-    }
-    
     function postJSON(url, data, accessToken) {
        var promise = new RSVP.Promise(function(resolve, reject){
             $.ajax({
@@ -76,6 +56,26 @@
 				beforeSend: function (xhr) {
                   xhr.setRequestHeader('X-accessToken', accessToken);
                 },
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    reject(err);
+                }
+            });
+        });
+        return promise;
+    }
+    
+    function postLogin(url, data) {
+        var promise = new RSVP.Promise(function (resolve, reject) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                timeout: 10000,
+                data: JSON.stringify(data),
                 success: function (data) {
                     resolve(data);
                 },
