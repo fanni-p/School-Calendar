@@ -8,7 +8,19 @@
         isLoggedIn: false,
         username: "",
         password: "",
-        accessToken: localStorage.getItem("accessToken"),
+        accessToken: "",
+        
+        init: function () {
+            var that = this;
+            kendo.data.ObservableObject.fn.init.apply(that, []);
+            
+            that.set("accessToken", localStorage.getItem("accessToken"));
+            
+            if(that.accessToken != "" && that.accessToken != null){
+                that.set("isLoggedIn", true); 
+                that.set("username", localStorage.getItem("username"));
+            }          
+        },
 
         onLogin: function () {
             var that = this,
@@ -31,6 +43,7 @@
 
             httpRequester.postLogin(app.servicesBaseUrl + 'auth/token', userData).then(function(success) {
                 that.accessToken = success.accessToken;
+                localStorage.setItem("username", that.username);
                 localStorage.setItem("accessToken", that.accessToken);
                 console.log(success);
             }, function(error){
@@ -54,6 +67,7 @@
         clearForm: function () {
             var that = this;
             
+            localStorage.setItem("username", "");
             localStorage.setItem("accessToken", "");
             that.set("accessToken", "");
             that.set("username", "");
