@@ -18,6 +18,7 @@
         <script src="scripts/camera.js"></script>
         <script src="scripts/login.js"></script>
         <script src="scripts/weekLessons.js"></script>
+        <script src="scripts/addLesson.js"></script>
     </head>
     <body>
         
@@ -67,17 +68,20 @@
             <!--Footer-->
             <div data-role="footer">
                 <div data-role="tabstrip">
-                    <a href="views/login-view.html#tabstrip-login" data-icon="settings">Login</a>
                     <a href="views/week-view.html#tabstrip-week" data-icon="week">Schedule</a>
+                    <a href="views/addLesson-view.html#tabstrip-addLesson" data-icon="lesson">Add Lesson</a>
                     <a href="views/camera-view.html#tabstrip-camera" data-icon="camera">Camera</a>
+                    <a href="views/login-view.html#tabstrip-login" data-icon="settings">Login</a>
                 </div>
             </div>
         </div>
         
         <script id="lesson-template" type="text/x-kendo-template">
-            <div>
-                <h2>#: day #</h2>
+            <div id="lessons">
+                <h3>#: day # </h3>
                 <h3>#: subject #</h3>
+                <p>#: startTime # - #: endTime #</p>
+                <p>Room: #: room #</p>
             </div>
         </script>
     </body>

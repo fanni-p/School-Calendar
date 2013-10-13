@@ -1,0 +1,52 @@
+  <div id="tabstrip-addLesson" 
+         data-role="view"  
+         data-title="AddLesson"
+         data-model="app.addLessonService.viewModel">
+      
+        <div class="view-content">
+            <h3 data-bind="invisible: isLessonAdded">Enter lesson details:</h3>
+            <h1 class="welcome" data-bind="visible: isLessonAdded">
+                Successfully add lesson!
+            </h1>
+
+            <ul data-role="listview" data-style="inset" data-bind="invisible: isLessonAdded">
+                <li>
+                    <label>
+                        Subject
+                        <input type="text" data-bind="value: subject"/>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Day of week
+                        <select data-role="dropdownlist"
+                                data-bind="source: day, value: selectedDay">
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Start time
+                        <input type="time" data-bind="value: startTime" />
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        End time
+                        <input type="time" data-bind="value: endTime" />
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Room
+                        <input type="text" data-bind="value: room" />
+                    </label>
+                </li>
+            </ul>
+
+            <div class="buttonArea">
+                <a id="lesson" data-role="button" data-bind="click: addLesson, invisible: isLessonAdded" class="lesson-button">Add Lesson</a>
+            </div>
+        </div>
+
+  </div>

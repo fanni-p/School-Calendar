@@ -23,6 +23,9 @@ body, html {
 .action-area{
     width:100%;
 }
+#lessons{
+    border-bottom: 1px solid lightgray;
+}
 
 /* IMAGE STYLES*/
 .img {
@@ -62,6 +65,10 @@ body, html {
 .km-week:before {
     content: "\e07a";
 }
+.km-lesson:after,
+.km-lesson:before {
+    content: "\e07b";
+}
 
 /* DEVICE SPECIFIC STYLES*/
 #skin-change{
@@ -88,22 +95,6 @@ body, html {
 .km-android .view-content h3{
     color:#2e5968;
 }
-.km-android .weather-info.temperature.low{
-    color:#2e5968;
-}
-
-.km-ios .km-view .weather {
-    background: #5fb4ed; /* Old browsers */
-    background: -moz-linear-gradient(top, #5fb4ed 0%, #0076c5 74%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5fb4ed), color-stop(74%,#0076c5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* IE10+ */
-    background: linear-gradient(to bottom, #5fb4ed 0%,#0076c5 74%); /* W3C */
-}
-.km-flat .km-view .weather{
-    background:#b0b0b0;
-}
 .km-flat .km-list>li{
     box-shadow:none;
 }
@@ -111,7 +102,6 @@ body, html {
 .km-ios .km-list > li,
 .km-flat .km-list>li {
     background:none;
-    border:none;
 }
 
 /* Separator Style*/

@@ -6,7 +6,7 @@
                 type:"GET",
                 dataType:"json",
                 contentType:"application/json",
-                timeout:10000,
+                timeout: 5000,
                 beforeSend: function (xhr) {
                   xhr.setRequestHeader('X-accessToken', accessToken);
                 },
@@ -28,8 +28,8 @@
                 type:"POST",
                 dataType:"json",
                 contentType:"application/json",
-                timeout:10000,
-                data: JSON.Stringify(data),
+                timeout: 5000,
+                data: JSON.stringify(data),
                 beforeSend: function (xhr) {
                   xhr.setRequestHeader('X-accessToken', accessToken);
                 },
@@ -51,7 +51,7 @@
                 type: "PUT",
                 dataType: "json",
                 contentType: "application/json",
-                timeout: 10000,
+                timeout: 5000,
                 data: JSON.stringify(data),
 				beforeSend: function (xhr) {
                   xhr.setRequestHeader('X-accessToken', accessToken);
@@ -74,7 +74,7 @@
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-                timeout: 10000,
+                timeout: 5000,
                 data: JSON.stringify(data),
                 success: function (data) {
                     resolve(data);
@@ -94,7 +94,7 @@
                 type: "PUT",
                 dataType: "json",
                 contentType: "application/json",
-                timeout: 10000,
+                timeout: 5000,
 				beforeSend: function (xhr) {
                   xhr.setRequestHeader('X-accessToken', accessToken);
                 },
