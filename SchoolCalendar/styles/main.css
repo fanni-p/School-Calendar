@@ -58,6 +58,10 @@ body, html {
     max-width:300px;
     line-height:2em;
 }
+.km-week:after,
+.km-week:before {
+    content: "\e07a";
+}
 
 /* DEVICE SPECIFIC STYLES*/
 #skin-change{

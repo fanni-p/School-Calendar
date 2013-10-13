@@ -12,12 +12,12 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
         <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
 
+        <script src="data/http-request.js"></script>
         <script src="scripts/libs/rsvp.min.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/camera.js"></script>
         <script src="scripts/login.js"></script>
-        <script src="data/http-request.js"></script>
-
+        <script src="scripts/weekLessons.js"></script>
     </head>
     <body>
         
@@ -53,56 +53,6 @@
                 </div>
             </div>
          </div>
-        
-        
-        <!--Home-->
-        <div id="tabstrip-home" 
-             data-role="view"  
-             data-title="Home">
-
-            <div class="view-content">
-                <h1>Welcome!</h1>
-            </div>
-        </div>
-      
-
-        <!--Weather-->
-        <div id="tabstrip-weather" 
-             data-role="view"  
-             data-title="Weather" 
-             data-model="app.weatherService.viewModel">
-
-            <div class="weather">
-                <h1>20-Day Forecast</h1>
-
-                <div class="separator">
-                    <div class="dark"></div>
-                    <div class="light"></div>
-                </div>
-
-                <ul class="forecast-list" 
-                    data-role="listview" 
-                    data-bind="source: weatherDataSource" 
-                    data-template="weather-forecast-template">
-                </ul>
-            </div>
-        </div>
-
-        <!--Weather forecast template-->
-        <script type="text/x-kendo-tmpl" id="weather-forecast-template">
-            <div>
-                <div class="position-left">
-                    <span class="weather-info date">${day}</span>
-                </div>
-                <div class="position-right">
-                    <span class="weather-info temperature high">${highTemperature}<sup>&deg;</sup></span>
-                    <span class="weather-info temperature low">${lowTemperature}<sup>&deg;</sup></span>
-                </div>
-                <div class="position-center">
-                    <span class="weather-icon ${image}"></span>
-                </div>
-            </div>
-        </script>
 
         <!--Layout-->
         <div data-role="layout" data-id="tabstrip-layout" >
@@ -118,10 +68,17 @@
             <div data-role="footer">
                 <div data-role="tabstrip">
                     <a href="views/login-view.html#tabstrip-login" data-icon="settings">Login</a>
-                    <a href="#tabstrip-home" data-icon="home">Home</a>
+                    <a href="views/week-view.html#tabstrip-week" data-icon="week">Schedule</a>
                     <a href="views/camera-view.html#tabstrip-camera" data-icon="camera">Camera</a>
                 </div>
             </div>
         </div>
+        
+        <script id="lesson-template" type="text/x-kendo-template">
+            <div>
+                <h2>#: day #</h2>
+                <h3>#: subject #</h3>
+            </div>
+        </script>
     </body>
 </html>
